@@ -4,7 +4,7 @@
 - [IDE](./ide.md)
   - [CLion](./clion.md)
 - [Практики](./practice.md)
-  - [intrusive_list]()
+  - [intrusive_list](./practice/intrusive_list.md)
   - [shared_ptr]()
   - [function]()
 - [Домашние задания](./hw.md)
