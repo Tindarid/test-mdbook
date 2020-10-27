@@ -8,4 +8,4 @@
   - [shared_ptr]()
   - [function]()
 - [Домашние задания]()
-  - [bimap]()
+  - [bimap](./hw/bimap.md)
