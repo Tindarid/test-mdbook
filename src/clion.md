@@ -16,4 +16,17 @@ __Clion__ имеет встроенный *clang-tidy*, но вы можете �
 
 Path: `Settings / Preferences | Editor | Inspections - C/C++, General, Clang-Tidy`
 
-![clang-tidy-clion](./images/clang-tidy-clion.png)
+![clang-tidy-clion](images/clang-tidy-clion.png)
+
+## [clang-format](https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html)
+
+__Clion__ имеет встроенный (альтернативный) *clang-format*, но вы можете указать внешний, если он есть на вашей системе.
+
+> Нужно убедиться, что вы поставили галочку на `Enable ClangFormat (only for C/C++/Objective-C` чтобы использовать __.clang-format__ курса.
+
+Path: `Settings / Preferences | Editor | Code Style - ClangFormat`
+
+![clang-format-clion](images/clang-format-clion.png)
+
+Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
+![clang-format-clion-another](images/clang-format-another-clion.png)
