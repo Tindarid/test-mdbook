@@ -3,7 +3,7 @@
 - [About & Links](./course.md)
 - [IDE](./ide.md)
   - [CLion](./clion.md)
-- [Практики]()
+- [Практики](./practice.md)
   - [intrusive_list]()
   - [shared_ptr]()
   - [function]()
