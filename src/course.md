@@ -23,3 +23,4 @@
 
 ## Lectures
 * [Twitch](https://www.twitch.tv/sorokin_ivan) —  лекции & разборы практик
+* [Youtube](https://www.youtube.com/playlist?list=PLd7QXkfmSY7YsYNecuoJLsurtqsMNyhNF) —  записи
