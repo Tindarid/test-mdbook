@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>About &amp; Links - C++ Advanced Course</title>
+        <title>bimap - C++ Advanced Course</title>
         
         
 
@@ -17,23 +17,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
         
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -43,7 +43,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Практики</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> intrusive_list</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> shared_ptr</li><li class="chapter-item expanded "><strong aria-hidden="true">3.3.</strong> function</li></ol></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Практики</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> intrusive_list</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> shared_ptr</li><li class="chapter-item expanded "><strong aria-hidden="true">3.3.</strong> function</li></ol></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/bimap.html" class="active"><strong aria-hidden="true">4.1.</strong> bimap</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -124,7 +124,7 @@
                     <h1 class="menu-title">C++ Advanced Course</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -155,20 +155,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#О-курсе" id="О-курсе">О курсе</a></h1>
-<p>Данный курс читается студентам кафедры КТ в университете ИТМО.</p>
-<h1><a class="header" href="#Ссылки" id="Ссылки">Ссылки</a></h1>
+                        <h1><a class="header" href="#bimap" id="bimap">Bimap</a></h1>
+<blockquote>
+<p><a href="https://classroom.github.com/a/S-IrHqh3">GitHub Classroom</a></p>
+</blockquote>
+<p>В этом задании вам необходимо написать <a href="https://en.wikipedia.org/wiki/Bidirectional_map"><code>bimap</code></a><br />
+Интерфейс вы найдете в репозитории, в файле <code>bimap.h</code></p>
+<p><code>bimap</code> —  это структура данных, в которой хранится набор пар и эффективно выполняется поиск ключа по значению. В отличие от <code>map</code>, поиск в <code>bimap</code> может выполняться как по левым (left) элементам пар, так и по правым (right).</p>
+<p><code>bimap</code> параметризуется 2 типами (left и right) и 2 компараторами, которые определяют порядок на этих типах.</p>
+<p>Итераторы вашего <code>bimap</code> должны повторять соответствующее поведение для <code>map</code> и позволять проходить все элементы с одной стороны в порядке, определенном переданным компаратором.</p>
+<p>Вам предлагается с помощью описания изложенного выше, интерфейсу и уже пройденным материалам курса придумать и реализовать эффективный <code>bimap</code> по</p>
+<ul>
+<li>Использованию памяти</li>
+<li>Общему кол-ву аллокаций</li>
+<li>Скорости операций</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-
-                        
-                            <a rel="next" href="ide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                            <a rel="prev" href="../hw.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
                             </a>
+                        
+
                         
 
                         <div style="clear: both"></div>
@@ -178,11 +190,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-
-                
-                    <a rel="next" href="ide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                    <a rel="prev" href="../hw.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+                
+
                 
             </nav>
 
@@ -203,14 +215,14 @@
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

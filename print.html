@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Test</title>
+        <title>C++ Advanced Course</title>
         
         <meta name="robots" content="noindex" />
         
@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> О курсе</a></li><li class="chapter-item expanded "><strong aria-hidden="true">2.</strong> Links</li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Tools</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> git</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> Github Classroom</li><li class="chapter-item expanded "><strong aria-hidden="true">3.3.</strong> clang-tidy</li><li class="chapter-item expanded "><strong aria-hidden="true">3.4.</strong> clang-format</li></ol></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">4.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="clion.html"><strong aria-hidden="true">4.1.</strong> CLion</a></li><li class="chapter-item expanded "><strong aria-hidden="true">4.2.</strong> QtCreator</li><li class="chapter-item expanded "><strong aria-hidden="true">4.3.</strong> Vim</li><li class="chapter-item expanded "><strong aria-hidden="true">4.4.</strong> Spacemacs</li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">5.</strong> Практики</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">5.1.</strong> intrusive_list</li><li class="chapter-item expanded "><strong aria-hidden="true">5.2.</strong> shared_ptr</li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">6.</strong> Домашние задания</li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li></ol></li><li class="chapter-item expanded "><strong aria-hidden="true">3.</strong> Практики</li><li><ol class="section"><li class="chapter-item expanded "><strong aria-hidden="true">3.1.</strong> intrusive_list</li><li class="chapter-item expanded "><strong aria-hidden="true">3.2.</strong> shared_ptr</li><li class="chapter-item expanded "><strong aria-hidden="true">3.3.</strong> function</li></ol></li><li class="chapter-item expanded "><a href="hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -123,7 +123,7 @@
                         
                     </div>
 
-                    <h1 class="menu-title">Test</h1>
+                    <h1 class="menu-title">C++ Advanced Course</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -158,10 +158,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#О-курсе" id="О-курсе">О курсе</a></h1>
+<p>Данный курс читается студентам кафедры КТ в университете ИТМО.</p>
+<h1><a class="header" href="#Ссылки" id="Ссылки">Ссылки</a></h1>
 <h1><a class="header" href="#ide" id="ide">IDE</a></h1>
 <p>Вы можете использовать <strong>IDE</strong> по вкусу для выполнения практик/домашних заданий.</p>
 <blockquote>
-<p>Но чтобы ваш код был в определенном стиле и при написании кода вы быстро увидели опечатки/минорные баги - вам предоставлены <strong>.clang-tidy</strong> и <strong>.clang-format</strong> файлы в темплейтном репозитории.</p>
+<p>Но чтобы ваш код был в определенном стиле и при написании кода вы быстро увидели опечатки/минорные баги - вам предоставлены <strong>.clang-tidy</strong> и <strong>.clang-format</strong> файлы в репозиториях.</p>
 </blockquote>
 <p>В этом разделе описаны этапы конфигурации некоторых <strong>IDE</strong> (рекомендуется <strong>Clion</strong>).</p>
 <h1><a class="header" href="#clion" id="clion">CLion</a></h1>
@@ -177,7 +179,41 @@ $ sudo snap install clion --classic
 <p>Нужно убедиться, что вы поставили галочку на <code>Prefer .clang-tidy files over IDE settings</code> чтобы использовать <strong>.clang-tidy</strong> курса.</p>
 </blockquote>
 <p>Path: <code>Settings / Preferences | Editor | Inspections - C/C++, General, Clang-Tidy</code></p>
-<p><img src="./images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
+<p><img src="images/clang-tidy-clion.png" alt="clang-tidy-clion" /></p>
+<h2><a class="header" href="#a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata" id="a-hrefhttpswwwjetbrainscomhelpclionclangformat-as-alternative-formatterhtmlclang-formata"><a href="https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html">clang-format</a></a></h2>
+<p><strong>Clion</strong> имеет встроенный (альтернативный) <em>clang-format</em>, но вы можете указать внешний, если он есть на вашей системе.</p>
+<blockquote>
+<p>Нужно убедиться, что вы поставили галочку на <code>Enable ClangFormat (only for C/C++/Objective-C</code> чтобы использовать <strong>.clang-format</strong> курса.</p>
+</blockquote>
+<p>Path: <code>Settings / Preferences | Editor | Code Style - ClangFormat</code></p>
+<p><img src="images/clang-format-clion.png" alt="clang-format-clion" /></p>
+<p>Либо другой, более быстрый вариант. В нижней панели экрана, поставить соотвествующую галочку.
+<img src="images/clang-format-another-clion.png" alt="clang-format-clion-another" /></p>
+<h1><a class="header" href="#Домашние-задания" id="Домашние-задания">Домашние задания</a></h1>
+<p>Здесь перечислены описания домашних заданий и ссылки на <strong>GithubClassroom</strong></p>
+<h2><a class="header" href="#Краткая-инструкция-по-работе" id="Краткая-инструкция-по-работе">Краткая инструкция по работе</a></h2>
+<ol>
+<li>После перехода в classroom у вас создатся приватный репозиторий со стартовым кодом, тестами, конфигурациями и т.д.</li>
+<li>Вы можете коммитить в любую ветку кроме ветки <code>feedback</code>. Она создаётся автоматически вместе с <strong>PR</strong> из <code>master</code> в неё.</li>
+<li>Никаких форспушей в <code>master</code> после первой проверки, если иное не оговорено с преподавателем. Это ломает историю внутри <strong>PR</strong>.</li>
+<li>После того как вы выполните ДЗ вы отправляете его на проверку с помощью соотвествующей формы (в папке на GoogleDrive). Если это ваша первая попытка - то выбирайте режим сдача, иначе - правки. В качестве ссылки на PR присылайте ссылку на тот самый автоматически созданный PR <code>master -&gt; feedback</code>.</li>
+<li>Далее заявка автоматически попадёт в таблицу и вы сможете наблюдать за её статусом.</li>
+</ol>
+<h1><a class="header" href="#bimap" id="bimap">Bimap</a></h1>
+<blockquote>
+<p><a href="https://classroom.github.com/a/S-IrHqh3">GitHub Classroom</a></p>
+</blockquote>
+<p>В этом задании вам необходимо написать <a href="https://en.wikipedia.org/wiki/Bidirectional_map"><code>bimap</code></a><br />
+Интерфейс вы найдете в репозитории, в файле <code>bimap.h</code></p>
+<p><code>bimap</code> —  это структура данных, в которой хранится набор пар и эффективно выполняется поиск ключа по значению. В отличие от <code>map</code>, поиск в <code>bimap</code> может выполняться как по левым (left) элементам пар, так и по правым (right).</p>
+<p><code>bimap</code> параметризуется 2 типами (left и right) и 2 компараторами, которые определяют порядок на этих типах.</p>
+<p>Итераторы вашего <code>bimap</code> должны повторять соответствующее поведение для <code>map</code> и позволять проходить все элементы с одной стороны в порядке, определенном переданным компаратором.</p>
+<p>Вам предлагается с помощью описания изложенного выше, интерфейсу и уже пройденным материалам курса придумать и реализовать эффективный <code>bimap</code> по</p>
+<ul>
+<li>Использованию памяти</li>
+<li>Общему кол-ву аллокаций</li>
+<li>Скорости операций</li>
+</ul>
 
                     </main>
 
