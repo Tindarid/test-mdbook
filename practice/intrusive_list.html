@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>bimap - C++ Advanced Course</title>
+        <title>intrusive_list - C++ Advanced Course</title>
         
         
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../practice/intrusive_list.html"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="../practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="../practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="../practice/signal.html"><strong aria-hidden="true">3.4.</strong> signal</a></li></ol></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/bimap.html" class="active"><strong aria-hidden="true">4.1.</strong> bimap</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../course.html"><strong aria-hidden="true">1.</strong> About &amp; Links</a></li><li class="chapter-item expanded "><a href="../ide.html"><strong aria-hidden="true">2.</strong> IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../clion.html"><strong aria-hidden="true">2.1.</strong> CLion</a></li></ol></li><li class="chapter-item expanded "><a href="../practice.html"><strong aria-hidden="true">3.</strong> Практики</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../practice/intrusive_list.html" class="active"><strong aria-hidden="true">3.1.</strong> intrusive_list</a></li><li class="chapter-item expanded "><a href="../practice/shared_ptr.html"><strong aria-hidden="true">3.2.</strong> shared_ptr</a></li><li class="chapter-item expanded "><a href="../practice/function.html"><strong aria-hidden="true">3.3.</strong> function</a></li><li class="chapter-item expanded "><a href="../practice/signal.html"><strong aria-hidden="true">3.4.</strong> signal</a></li></ol></li><li class="chapter-item expanded "><a href="../hw.html"><strong aria-hidden="true">4.</strong> Домашние задания</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../hw/bimap.html"><strong aria-hidden="true">4.1.</strong> bimap</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -155,32 +155,116 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#bimap" id="bimap">Bimap</a></h1>
+                        <h1><a class="header" href="#intrusive-list" id="intrusive-list">Intrusive List</a></h1>
 <blockquote>
-<p><a href="https://classroom.github.com/a/S-IrHqh3">GitHub Classroom</a></p>
+<p><a href="https://github.com/CPP-KT/intrusive_list_task">Github</a></p>
 </blockquote>
-<p>В этом задании вам необходимо написать <a href="https://en.wikipedia.org/wiki/Bidirectional_map"><code>bimap</code></a><br />
-Интерфейс вы найдете в репозитории, в файле <code>bimap.h</code></p>
-<p><code>bimap</code> —  это структура данных, в которой хранится набор пар и эффективно выполняется поиск ключа по значению. В отличие от <code>map</code>, поиск в <code>bimap</code> может выполняться как по левым (left) элементам пар, так и по правым (right).</p>
-<p><code>bimap</code> параметризуется 2 типами (left и right) и 2 компараторами, которые определяют порядок на этих типах.</p>
-<p>Итераторы вашего <code>bimap</code> должны повторять соответствующее поведение для <code>map</code> и позволять проходить все элементы с одной стороны в порядке, определенном переданным компаратором.</p>
-<p>Вам предлагается с помощью описания изложенного выше, интерфейсу и уже пройденным материалам курса придумать и реализовать эффективный <code>bimap</code> по</p>
-<ul>
-<li>Использованию памяти</li>
-<li>Общему кол-ву аллокаций</li>
-<li>Скорости операций</li>
-</ul>
+<p>В данном задании необходимо написать <a href="https://www.boost.org/doc/libs/1_74_0/doc/html/intrusive/intrusive_vs_nontrusive.html">Intrusive List</a>. Intrusive List —  это такой контейнер, который представляет из себя двусвязный список. В отличие от <code>std::list</code> он не делает копии элементов вставляемых в список, а строит список из тех объектов, что ему передаются в <code>insert</code>, <code>push_front</code> и <code>push_back</code>. </p>
+<h2><a class="header" href="#Пример-использования" id="Пример-использования">Пример использования</a></h2>
+<pre><code class="language-cpp">struct bookmark : intrusive::list_element&lt;struct bookmark_tag&gt;
+{
+    uint32_t page;
+
+    bookmark(uint32_t page)
+        : page(page)
+    {}
+};
+
+int main()
+{
+    std::vector&lt;bookmark&gt; bookmarks;
+    for (uint32_t i = 0; i != 100; i += 10)
+        bookmarks.push_back(bookmark(i));
+
+    intrusive::list&lt;bookmark, bookmark_tag&gt; bookmark_list;
+    for (auto&amp; e : bookmarks)
+        bookmark_list.push_front(e);
+
+    for (auto const&amp; e : bookmark_list)
+        std::cout &lt;&lt; e.get_page() &lt;&lt; '\n';
+}
+</code></pre>
+<p>В <code>intrusive::list</code> можно добавлять объекты не любых типов, а лишь тех, что наследуются от <code>intrusive::list_element&lt;Tag&gt;</code>. Шаблонный параметр <code>Tag</code> позволяет пользовательскому классу отнаследоваться сразу несколько раз от <code>intrusive::list_element</code> если это необходимо. Множественное наследование от <code>intrusive::list_element&lt;Tag&gt;</code> необходимо, если нужно добавлять один объект сразу в несколько разных списков. Чтобы указать <code>intrusive::list&lt;T, Tag&gt;</code> какую из баз у <code>T</code> он использует, ему передаётся <code>Tag</code> вторым параметром.</p>
+<p>Если у <code>list_element</code> вызывается деструктор и этот <code>list_element</code> добавлен в какой-то список, то он должен быть автоматически удалён из этого списка (в <code>Boost.Intrusive</code> такое поведение называется <a href="https://www.boost.org/doc/libs/1_74_0/doc/html/intrusive/auto_unlink_hooks.html">auto-unlink hooks</a>).</p>
+<h2><a class="header" href="#Список-функций" id="Список-функций">Список функций</a></h2>
+<pre><code class="language-cpp">namespace intrusive
+{
+    /*
+    Тег по-умолчанию чтобы пользователям не нужно было
+    придумывать теги, если они используют лишь одну базу
+    list_element.
+    */
+    struct default_tag;
+
+    template &lt;typename Tag = default_tag&gt;
+    struct list_element
+    {
+        /* Отвязывает элемент из списка в котором он находится. */
+        void unlink();
+    };
+
+    template &lt;typename T, typename Tag = default_tag&gt;
+    struct list
+    {
+        typedef /*определяется реализацией*/ iterator;
+        typedef /*определяется реализацией*/ const_iterator;
+
+        static_assert(std::is_convertible_v&lt;T&amp;, list_element&lt;Tag&gt;&amp;&gt;,
+            &quot;value type is not convertible to list_element&quot;);
+
+        list() noexcept;
+        list(list const&amp;) = delete;
+        list(list&amp;&amp;) noexcept;
+        ~list();
+
+        list&amp; operator=(list const&amp;) = delete;
+        list&amp; operator=(list&amp;&amp;) noexcept;
+
+        void clear() noexcept;
+
+        /*
+        Поскольку вставка изменяет данные в list_element
+        мы принимаем неконстантный T&amp;.
+        */
+        void push_back(T&amp;) noexcept;
+        void pop_back() noexcept;
+        T&amp; back() noexcept;
+        T const&amp; back() const noexcept;
+
+        void push_front(T&amp;) noexcept;
+        void pop_front() noexcept;
+        T&amp; front() noexcept;
+        T const&amp; front() const noexcept;
+
+        bool empty() const noexcept;
+
+        iterator begin() noexcept;
+        const_iterator begin() const noexcept;
+
+        iterator end() noexcept;
+        const_iterator end() const noexcept;
+
+        iterator insert(const_iterator pos, T&amp;) noexcept;
+        iterator erase(const_iterator pos) noexcept;
+        void splice(const_iterator pos, list&amp;, const_iterator first, const_iterator last) noexcept;
+    };
+}
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../hw.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../practice.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
+                        
+                            <a rel="next" href="../practice/shared_ptr.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -190,11 +274,15 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../hw.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../practice.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
+                
+                    <a rel="next" href="../practice/shared_ptr.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
